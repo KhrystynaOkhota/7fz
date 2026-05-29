@@ -1,0 +1,71 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+html, body, div, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, u, center,
+dl, dt, dd, ol, ul, li, p,
+fieldset, form, label, legend,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, figure, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  vertical-align: baseline;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  background:#fff;
+  color:#1B1B1B;
+  overflow: hidden!important;
+}
+
+ol, ul {
+  list-style: none;
+  // font-size: 0;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}

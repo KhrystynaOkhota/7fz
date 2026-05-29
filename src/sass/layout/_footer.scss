@@ -1,0 +1,148 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.footer {
+  position: relative;
+  background: rgba(13, 27, 42, 1);
+  padding: fluid(30, 40) 0 fluid(30, 57) 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto 2fr 2fr 1fr;
+    gap: fluid(30, 55);
+    align-items: center;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: auto 1.5fr 1fr;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: fluid(70, 95);
+    height: fluid(88, 120);
+    object-fit: contain;
+
+    &-link {
+      display: inline-block;
+
+    }
+  }
+
+  &__brand {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__info {
+    font-size: 16px;
+    line-height: 1.6;
+
+    @media (max-width: $breakpoint-md) {
+      order: 3;
+    }
+  }
+
+  &__copyright {
+    color: rgba(138, 155, 176, 1);
+    margin-bottom: fluid(10,20);
+  }
+
+  &__developer {
+    color: rgba(138, 155, 176, 1);
+
+    &-link {
+      color: rgba(138, 155, 176, 1);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__nav {
+    width: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+
+  /* Сітка для розділення одного списку на дві рівні колонки */
+  &__menu {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 110px;
+  }
+
+  &__menu-item {}
+
+  &__link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 300;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      color: #0091ff;
+      transform: translateX(3px);
+
+      @media (max-width: 576px) {
+        transform: none;
+      }
+    }
+  }
+
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: fluid(15, 26);
+
+    @media (max-width: $breakpoint-md) {
+      align-items: center;
+    }
+  }
+
+  &__phone {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 300;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgba(169, 173, 176, 1);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      opacity: 0.8;
+    }
+  }
+}

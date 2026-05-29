@@ -1,0 +1,304 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html.overflow-menu,
+html.overflow-menu body {
+  overflow: hidden;
+
+}
+
+.decor-line {
+  height: 70px;
+  width: 1px;
+  margin: 0 auto;
+  background-color: $white-color;
+}
+
+.decor {
+
+  width: 100%;
+
+  &__wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+.border-radius {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+html:not(.touch-screen)::-webkit-scrollbar,
+html:not(.touch-screen) *::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html:not(.touch-screen)::-webkit-scrollbar-track,
+html:not(.touch-screen) *::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+html:not(.touch-screen)::-webkit-scrollbar-thumb,
+html:not(.touch-screen) *::-webkit-scrollbar-thumb {
+  background-color: $accent-color !important;
+}
+
+
+html {
+  overflow-y: scroll;
+}
+
+body .hide-scrollbar,
+html .hide-scrollbar {
+  scrollbar-width: none
+}
+
+body .hide-scrollbar::-webkit-scrollbar,
+html .hide-scrollbar::-webkit-scrollbar {
+  display: none
+}
+
+
+img::selection {
+  background-color: transparent;
+}
+
+.default-icon {
+  width: 100%;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.--relative {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.overlap {
+  position: relative;
+  z-index: 3;
+}
+
+body,
+html {
+  &.overflow-hidden {
+    // padding-left: calc(100vw - 100%);
+    overflow: hidden;
+
+  }
+}
+
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  /* Safari/Chrome */
+  pointer-events: auto;
+  /* keep interactions like clicks */
+}
+
+.lg-img-wrap img {
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+.body-padding {
+  height: 165px;
+
+  @media (max-width: $breakpoint-lg) {
+    height: 136px;
+  }
+}
+
+
+.section {
+  overflow: hidden;
+  position: relative;
+
+  & .heading {}
+}
+
+
+.main {
+  overflow: hidden;
+  min-height: 50vh;
+
+  &-wrapper {
+    //   position: relative;
+    //  min-height: 100vh;
+    //  overflow: hidden;
+    z-index: 1;
+  }
+
+}
+
+.swiper {
+  &-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    width: 100%;
+    //    height: 100%;
+    opacity: 0;
+
+    &.swiper-initialized {
+      opacity: 1;
+    }
+
+    &:not(.swiper-no-swiping) {
+      cursor: url(../img/drag.png) 16 9, ew-resize;
+
+      cursor: -webkit-grab;
+      cursor: -moz-grab;
+      cursor: -o-grab;
+      cursor: -ms-grab;
+      cursor: grab;
+    }
+  }
+
+  &-pagination {
+    position: relative;
+    bottom: 0;
+
+    flex-direction: row;
+    justify-content: center;
+    z-index: 2 !important;
+    display: flex;
+    margin-top: 21px;
+    gap: 10px;
+
+    @media (max-width: $breakpoint-md) {
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    &.swiper-pagination-horizontal {
+      width: auto;
+    }
+
+    &-bullet {
+      font-size: 0;
+      width: 50px;
+      height: 5px;
+      background: rgba(200, 198, 229, 0.5);
+      border-radius: 0;
+
+      @include transition(.4);
+
+      @media (max-width: $breakpoint-md) {
+        width: 55px;
+      }
+
+      &-active {
+        background: rgba(255, 60, 0, 1);
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &-controls {
+    @media (max-width: $breakpoint-md) {
+      margin-top: 50px;
+    }
+  }
+
+  &-button {
+    &__wrap {
+      cursor: auto;
+      background: rgba(65, 102, 176, 1);
+      border-radius: 5px;
+    }
+
+    &-next,
+    &-prev {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      width: 65px;
+      height: 50px;
+     
+     
+      @include transition(.5);
+
+   
+
+      &:after {
+        display: none;
+      }
+
+      i {
+        color: rgba(200, 198, 229, 1);
+        font-size: 15px;
+        @include transition(.5);
+
+        @media (max-width: $breakpoint-md) {
+          font-size: 7px;
+        }
+      }
+
+      &:hover {
+        background: #C8C6E5;
+
+        & i {
+          color: #fff;
+        }
+      }
+    }
+
+    &-next {
+      
+    }
+
+    &-prev {
+    
+    }
+  }
+}
+
+.decor-line {
+  width: 100%;
+  height: 1px;
+  background: rgb(45, 45, 45);
+  max-width: 1296px;
+  margin: auto;
+}

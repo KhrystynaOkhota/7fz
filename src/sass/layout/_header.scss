@@ -1,0 +1,86 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// Змінні
+$color-bg-dark: #0d1b2a;
+$color-text-white: #ffffff;
+$color-accent: #4ea8de;
+$transition-base: 0.3s ease;
+
+.header {
+  width: 100%;
+  background-color: rgba(13, 27, 42, .8);
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &__container {
+    /*display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    align-items: center;
+    column-gap: 67px;*/
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      max-height: 50px;
+      width: auto;
+    }
+  }
+
+  &__navigation {
+
+    justify-self: start;
+
+    & .menu {
+      display: flex;
+      gap: fluid(20,50);
+
+      &-item {
+        & a {
+          color: rgba(255, 255, 255, 1);
+          font-size: fluid(14, 17);
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  &__languages {
+    display: flex;
+    align-items: center;
+
+    & .lang {
+      &-menu {
+        display: flex;
+        gap: 20px;
+      }
+
+      &-item {
+        & a {
+          color: rgba(255, 255, 255, 1);
+          font-size: fluid(14, 17);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &__contacts {
+    color: #fff;
+    font-size: fluid(14, 17);
+    white-space: nowrap;
+  }
+}
