@@ -1,86 +1,262 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-// Змінні
+// Токени компонента
 $color-bg-dark: #0d1b2a;
 $color-text-white: #ffffff;
-$color-accent: #4ea8de;
-$transition-base: 0.3s ease;
+$color-accent: #4166b0;
+$transition-base: 0.35s cubic-bezier(0.25, 1, 0.5, 1); // Більш плавна крива анімації
 
+/* ==========================================================================
+   HEADER COMPONENT (Desktop-first base)
+   ========================================================================== */
 .header {
-  width: 100%;
-  background-color: rgba(13, 27, 42, .8);
-  padding: 20px 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  width: 100%;
+  padding: 20px 0;
+  transition: background-color $transition-base, padding $transition-base;
+
+  &.is-open {
+    background-color: rgb(13, 27, 42);
+  }
+
+  &.scrolled {
+    background-color: rgba(13, 27, 42, 0.8);
+  }
 
   &__container {
-    /*display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    align-items: center;
-    column-gap: 67px;*/
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
+    width: 100%;
   }
 
   &__logo {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    z-index: 1002;
 
     img {
       display: block;
-      max-height: 50px;
+      max-height: fluid(55, 125);
       width: auto;
     }
   }
 
-  &__navigation {
+  &__navigation-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 fluid(30, 65);
+    gap: fluid(20, 60);
+  }
 
-    justify-self: start;
+  .menu {
+    display: flex;
+    gap: fluid(15, 50);
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-    & .menu {
-      display: flex;
-      gap: fluid(20,50);
+    &-item a {
+      display: block;
+      color: $color-text-white;
+      font-size: fluid(14, 17);
+      white-space: nowrap;
+      text-decoration: none;
+      transition: color $transition-base;
 
-      &-item {
-        & a {
-          color: rgba(255, 255, 255, 1);
-          font-size: fluid(14, 17);
-          white-space: nowrap;
-        }
+      &:hover,
+      &.active {
+        color: $color-accent;
       }
     }
   }
 
-  &__languages {
+  .lang {
+    &-menu {
+      display: flex;
+      gap: fluid(15, 20);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &-item a {
+      display: block;
+      color: $color-text-white;
+      font-size: fluid(14, 17);
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-accent;
+      }
+
+    }
+  }
+
+  &__social {
     display: flex;
     align-items: center;
-
-    & .lang {
-      &-menu {
-        display: flex;
-        gap: 20px;
-      }
-
-      &-item {
-        & a {
-          color: rgba(255, 255, 255, 1);
-          font-size: fluid(14, 17);
-          text-transform: uppercase;
-        }
-      }
-    }
+    gap: 15px;
   }
 
   &__contacts {
-    color: #fff;
+    color: $color-text-white;
     font-size: fluid(14, 17);
     white-space: nowrap;
+    z-index: 1002;
+  }
+}
+
+/* ==========================================================================
+   BURGER BUTTON (Hidden on Desktop)
+   ========================================================================== */
+.burger {
+  display: none;
+  order: 3;
+  position: relative;
+  z-index: 1005;
+  width: 45px;
+  height: 25px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &__box {
+    position: relative;
+    display: inline-block;
+    width: 26px;
+    height: 18px;
+  }
+
+  &__inner {
+    display: block;
+    top: 50%;
+    margin-top: -1px;
+
+    &,
+    &::before,
+    &::after {
+      position: absolute;
+      width: 26px;
+      height: 2px;
+      background-color: $color-text-white;
+      border-radius: 4px;
+      transition: transform 0.2s ease, top 0.2s ease, background-color 0.2s ease;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      bottom: -6px;
+    }
+  }
+
+  // Анімація хрестика
+  &--active {
+    .burger__inner {
+      background-color: transparent !important;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   ОБ'ЄДНАНИЙ МЕДІА-ЗАПИТ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (Оптимізація ваги файлу)
+   ========================================================================== */
+@media (max-width: $breakpoint-lg) {
+  .header {
+    @media (max-width: $breakpoint-md) {
+      padding: 15px 0;
+    }
+
+    &__logo {
+      order: 2;
+      margin: 0 auto;
+    }
+
+    &__contacts {
+      order: 1;
+      font-size: 14px;
+    }
+
+    &__social {
+      gap: 10px;
+    }
+
+    // Перетворення меню на мобільну шторку
+    &__navigation-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1001;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      width: 100%;
+      height: 100vh;
+      padding: 120px 20px 50px 20px;
+      overflow: hidden auto;
+      background-color: rgb(13, 27, 42);
+
+      // Оптимізована анімація зсуву через чистий translate
+      translate: -100% 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: translate $transition-base, opacity $transition-base, visibility $transition-base;
+    }
+
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+  }
+
+  // Показуємо бургер лише на екранах менше за десктоп
+  .burger {
+    display: flex;
+  }
+
+  // Стан відкритого меню
+  .is-open {
+    .header__navigation-wrap {
+      translate: 0 0;
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }

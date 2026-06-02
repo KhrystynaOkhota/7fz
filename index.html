@@ -26,47 +26,56 @@
         <div class="header__container container">
 
             <a href="/" class="header__logo">
-                <img src="assets/img/logo.svg" alt="7-ФУРНІТЕК ЗАХІД" width="180" height="50">
+                <img src="assets/img/logo.svg" alt="7-ФУРНІТЕК ЗАХІД">
             </a>
+            <div class="header__navigation-wrap">
+                <nav class="header__navigation">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="#products">Товари</a></li>
+                        <li class="menu-item active"><a href="#about">Про нас</a></li>
+                        <li class="menu-item"><a href="#advantages">Переваги</a></li>
+                        <li class="menu-item"><a href="#contacts">Контакти</a></li>
+                    </ul>
+                </nav>
 
-            <nav class="header__navigation">
-                <ul class="menu">
-                    <li class="menu-item"><a href="#products">Товари</a></li>
-                    <li class="menu-item active"><a href="#about">Про нас</a></li>
-                    <li class="menu-item"><a href="#advantages">Переваги</a></li>
-                    <li class="menu-item"><a href="#contacts">Контакти</a></li>
-                </ul>
-            </nav>
+                <div class="header__languages">
+                    <ul class="lang-menu">
+                        <li class="lang-item active"><a href="/ua/">UA</a></li>
+                        <li class="lang-item"><a href="/en/">EN</a></li>
+                    </ul>
+                </div>
 
-            <div class="header__languages">
-                <ul class="lang-menu">
-                    <li class="lang-item active"><a href="/ua/">UA</a></li>
-                    <li class="lang-item"><a href="/en/">EN</a></li>
+                <ul class="social header__social">
+                    <li class="social__item">
+                        <a href="viber://chat?number=%2B380960437508" class="social__link"
+                            aria-label="Наш YouTube канал" target="_blank" rel="noopener">
+                            <img src="assets/img/viber.svg" alt="icon viber">
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://t.me/username" class="social__link" aria-label="Ми у Facebook" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/telegram.svg" alt="icon telegram">
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://wa.me/380960437508" class="social__link" aria-label="Наш Instagram"
+                            target="_blank" rel="noopener">
+                            <img src="assets/img/whatsapp.svg" alt="icon whatsapp">
+                        </a>
+                    </li>
                 </ul>
+
             </div>
+            <a href="tel:+380960437508" class="header__contacts"><span class="d-none d-xl-block">+38 (096)
+                    043-75-08</span><img src="assets/img/phone.svg" alt="phone icon" class="d-block d-xl-none"></a>
 
-            <ul class="social header__social">
-                <li class="social__item">
-                    <a href="viber://chat?number=%2B380960437508" class="social__link" aria-label="Наш YouTube канал"
-                        target="_blank" rel="noopener">
-                        <img src="assets/img/viber.svg" alt="icon viber">
-                    </a>
-                </li>
-                <li class="social__item">
-                    <a href="https://t.me/username" class="social__link" aria-label="Ми у Facebook" target="_blank"
-                        rel="noopener">
-                        <img src="assets/img/telegram.svg" alt="icon telegram">
-                    </a>
-                </li>
-                <li class="social__item">
-                    <a href="https://wa.me/380960437508" class="social__link" aria-label="Наш Instagram" target="_blank"
-                        rel="noopener">
-                        <img src="assets/img/whatsapp.svg" alt="icon whatsapp">
-                    </a>
-                </li>
-            </ul>
-            <a href="tel:+380960437508" class="header__contacts">+38 (096) 043-75-08</a>
 
+            <button class="burger burger--spring">
+                <span class="burger__box">
+                    <span class="burger__inner"></span>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -86,7 +95,7 @@
                             <a href="#" class="hero-actions__btn btn btn--primary">
                                 Переглянути товари
                             </a>
-                            <button type="button" class="hero-actions__btn btn btn--outline">
+                            <button type="button" class="hero-actions__btn btn btn--outline open-popup" data-rel="cta">
                                 Зв'язатися з нами
                             </button>
                         </div>
@@ -96,21 +105,21 @@
                                 <div class="benefit__icon-wrap d-flex align-middle align-center">
                                     <img src="assets/img/ad-1.svg" alt="" class="benefit__icon">
                                 </div>
-                                <div class="benefit__title text-s">Якість</div>
+                                <div class="benefit__title ">Якість</div>
                             </div>
 
                             <div class="benefit">
                                 <div class="benefit__icon-wrap d-flex align-middle align-center">
                                     <img src="assets/img/ad-2.svg" alt="" class="benefit__icon">
                                 </div>
-                                <div class="benefit__title text-s">Доступні ціни</div>
+                                <div class="benefit__title ">Доступні ціни</div>
                             </div>
 
                             <div class="benefit">
                                 <div class="benefit__icon-wrap d-flex align-middle align-center">
                                     <img src="assets/img/ad-3.svg" alt="" class="benefit__icon">
                                 </div>
-                                <div class="benefit__title text-s">Надійні поставки</div>
+                                <div class="benefit__title ">Надійні поставки</div>
                             </div>
 
                         </div>
@@ -133,97 +142,204 @@
 
                 <div class="row m-row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
-                        <div class="category__grid">
-                            <div class="category__item">
-                                <div class="category__img-wrap --relative">
-                                    <img src="assets/img/d-1.jpg" alt="" class="category__img">
+                        <div class="promo-card__grid">
+                            <div class="promo-card">
+                                <div class="promo-card__img--wrap">
+
+                                    <img src="assets/img/about.png" alt="Поролон та наповнювачі для м'яких меблів"
+                                        class="promo-card__img" loading="lazy" decoding="async" width="400"
+                                        height="380">
+
                                 </div>
 
-                                <div class="category__info">
-                                    <img src="assets/img/category-1.svg" alt="" class="category__icon">
-                                    <div class="category__heading text-semibold ">Поролон та наповнювачі</div>
-                                    <div class="category__description text-regular --relative">Далеко-далеко за
-                                        словесними
-                                        горами країни голосних і живуть рибні тексти.
+                                <div class="promo-card__body">
+                                    <div class="promo-card__header">
+                                        <div class="promo-card__icon">
+                                            <img src="assets/img/category-1.svg" alt="">
+                                        </div>
+                                        <h3 class="promo-card__title">Поролон та наповнювачі</h3>
                                     </div>
 
-                                    <a href="directions-inner.html" class="btn-more">Показати товари <i
-                                            class="icon icon-ar-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="category__item">
-                                <div class="category__img-wrap --relative">
-                                    <img src="assets/img/d-1.jpg" alt="" class="category__img">
+                                    <p class="promo-card__text">
+                                        Далеко-далеко за словесними горами країни голосних і живуть рибні тексти.
+                                    </p>
+
+                                    <div class="promo-card__action" aria-hidden="true">
+                                        <span class="promo-card__action-text">Показати товари</span>
+                                        <i class="promo-card__action-icon icon-ar-right"></i>
+                                    </div>
                                 </div>
 
-                                <div class="category__info">
-                                    <img src="assets/img/category-1.svg" alt="" class="category__icon">
-                                    <div class="category__heading text-semibold ">Поролон та наповнювачі</div>
-                                    <div class="category__description text-regular --relative">Далеко-далеко за
-                                        словесними
-                                        горами країни голосних і живуть рибні тексти.
+                                <div class="promo-card__hitbox open-popup" data-rel="category"
+                                    data-img="assets/img/about.png" data-text="Це ваш динамічний текст для попапу">
+                                </div>
+
+                            </div>
+                            <div class="promo-card">
+                                <div class="promo-card__img--wrap">
+
+                                    <img src="assets/img/about.png" alt="Поролон та наповнювачі для м'яких меблів"
+                                        class="promo-card__img" loading="lazy" decoding="async" width="400"
+                                        height="380">
+
+                                </div>
+
+                                <div class="promo-card__body">
+                                    <div class="promo-card__header">
+                                        <div class="promo-card__icon">
+                                            <img src="assets/img/category-1.svg" alt="">
+                                        </div>
+                                        <h3 class="promo-card__title">Поролон та наповнювачі</h3>
                                     </div>
 
-                                    <a href="directions-inner.html" class="btn-more">Показати товари <i
-                                            class="icon icon-ar-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="category__item">
-                                <div class="category__img-wrap --relative">
-                                    <img src="assets/img/d-1.jpg" alt="" class="category__img">
+                                    <p class="promo-card__text">
+                                        Далеко-далеко за словесними горами країни голосних і живуть рибні тексти.
+                                    </p>
+
+                                    <div class="promo-card__action" aria-hidden="true">
+                                        <span class="promo-card__action-text">Показати товари</span>
+                                        <i class="promo-card__action-icon icon-ar-right"></i>
+                                    </div>
                                 </div>
 
-                                <div class="category__info">
-                                    <img src="assets/img/category-1.svg" alt="" class="category__icon">
-                                    <div class="category__heading text-semibold ">Поролон та наповнювачі</div>
-                                    <div class="category__description text-regular --relative">Далеко-далеко за
-                                        словесними
-                                        горами країни голосних і живуть рибні тексти.
+                                <div class="promo-card__hitbox open-popup" data-rel="category"
+                                    data-img="assets/img/category-1.svg"
+                                    data-text="Це ваш динамічний текст для попапу dsfghjgvc">
+                                </div>
+
+                            </div>
+
+                            <div class="promo-card">
+                                <div class="promo-card__img--wrap">
+
+                                    <img src="assets/img/about.png" alt="Поролон та наповнювачі для м'яких меблів"
+                                        class="promo-card__img" loading="lazy" decoding="async" width="400"
+                                        height="380">
+
+                                </div>
+
+                                <div class="promo-card__body">
+                                    <div class="promo-card__header">
+                                        <div class="promo-card__icon">
+                                            <img src="assets/img/category-1.svg" alt="">
+                                        </div>
+                                        <h3 class="promo-card__title">Поролон та наповнювачі</h3>
                                     </div>
 
-                                    <a href="directions-inner.html" class="btn-more">Показати товари <i
-                                            class="icon icon-ar-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="category__item">
-                                <div class="category__img-wrap --relative">
-                                    <img src="assets/img/d-1.jpg" alt="" class="category__img">
+                                    <p class="promo-card__text">
+                                        Далеко-далеко за словесними горами країни голосних і живуть рибні тексти.
+                                    </p>
+
+                                    <div class="promo-card__action" aria-hidden="true">
+                                        <span class="promo-card__action-text">Показати товари</span>
+                                        <i class="promo-card__action-icon icon-ar-right"></i>
+                                    </div>
                                 </div>
 
-                                <div class="category__info">
-                                    <img src="assets/img/category-1.svg" alt="" class="category__icon">
-                                    <div class="category__heading text-semibold ">Поролон та наповнювачі</div>
-                                    <div class="category__description text-regular --relative">Далеко-далеко за
-                                        словесними
-                                        горами країни голосних і живуть рибні тексти.
+                                <div class="promo-card__hitbox open-popup" data-rel="category"
+                                    data-img="assets/img/about.png"
+                                    data-text="Це ваш динамічний текст для попапу fghjk">
+                                </div>
+
+                            </div>
+
+                            <div class="promo-card">
+                                <div class="promo-card__img--wrap">
+
+                                    <img src="assets/img/about.png" alt="Поролон та наповнювачі для м'яких меблів"
+                                        class="promo-card__img" loading="lazy" decoding="async" width="400"
+                                        height="380">
+
+                                </div>
+
+                                <div class="promo-card__body">
+                                    <div class="promo-card__header">
+                                        <div class="promo-card__icon">
+                                            <img src="assets/img/category-1.svg" alt="">
+                                        </div>
+                                        <h3 class="promo-card__title">Поролон та наповнювачі</h3>
                                     </div>
 
-                                    <a href="directions-inner.html" class="btn-more">Показати товари <i
-                                            class="icon icon-ar-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="category__item">
-                                <div class="category__img-wrap --relative">
-                                    <img src="assets/img/d-1.jpg" alt="" class="category__img">
+                                    <p class="promo-card__text">
+                                        Далеко-далеко за словесними горами країни голосних і живуть рибні тексти.
+                                    </p>
+
+                                    <div class="promo-card__action" aria-hidden="true">
+                                        <span class="promo-card__action-text">Показати товари</span>
+                                        <i class="promo-card__action-icon icon-ar-right"></i>
+                                    </div>
                                 </div>
 
-                                <div class="category__info">
-                                    <img src="assets/img/category-1.svg" alt="" class="category__icon">
-                                    <div class="category__heading text-semibold ">Поролон та наповнювачі</div>
-                                    <div class="category__description text-regular --relative">Далеко-далеко за
-                                        словесними
-                                        горами країни голосних і живуть рибні тексти.
+                                <a href="#" class="promo-card__hitbox"
+                                    aria-label="Перейти до категорії: Поролон та наповнювачі"></a>
+                            </div>
+
+                            <div class="promo-card">
+                                <div class="promo-card__img--wrap">
+
+                                    <img src="assets/img/about.png" alt="Поролон та наповнювачі для м'яких меблів"
+                                        class="promo-card__img" loading="lazy" decoding="async" width="400"
+                                        height="380">
+
+                                </div>
+
+                                <div class="promo-card__body">
+                                    <div class="promo-card__header">
+                                        <div class="promo-card__icon">
+                                            <img src="assets/img/category-1.svg" alt="">
+                                        </div>
+                                        <h3 class="promo-card__title">Поролон та наповнювачі</h3>
                                     </div>
 
-                                    <a href="directions-inner.html" class="btn-more">Показати товари <i
-                                            class="icon icon-ar-right"></i>
-                                    </a>
+                                    <p class="promo-card__text">
+                                        Далеко-далеко за словесними горами країни голосних і живуть рибні тексти.
+                                    </p>
+
+                                    <div class="promo-card__action" aria-hidden="true">
+                                        <span class="promo-card__action-text">Показати товари</span>
+                                        <i class="promo-card__action-icon icon-ar-right"></i>
+                                    </div>
                                 </div>
+
+                                <a href="#" class="promo-card__hitbox"
+                                    aria-label="Перейти до категорії: Поролон та наповнювачі"></a>
                             </div>
+
+                            <div class="promo-card">
+                                <div class="promo-card__img--wrap">
+
+                                    <img src="assets/img/about.png" alt="Поролон та наповнювачі для м'яких меблів"
+                                        class="promo-card__img" loading="lazy" decoding="async" width="400"
+                                        height="380">
+
+                                </div>
+
+                                <div class="promo-card__body">
+                                    <div class="promo-card__header">
+                                        <div class="promo-card__icon">
+                                            <img src="assets/img/category-1.svg" alt="">
+                                        </div>
+                                        <h3 class="promo-card__title">Поролон та наповнювачі</h3>
+                                    </div>
+
+                                    <p class="promo-card__text">
+                                        Далеко-далеко за словесними горами країни голосних і живуть рибні тексти.
+                                    </p>
+
+                                    <div class="promo-card__action" aria-hidden="true">
+                                        <span class="promo-card__action-text">Показати товари</span>
+                                        <i class="promo-card__action-icon icon-ar-right"></i>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="promo-card__hitbox"
+                                    aria-label="Перейти до категорії: Поролон та наповнювачі"></a>
+                            </div>
+
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -235,7 +351,7 @@
                 <div class="row m-row">
                     <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
                         <h2 class="heading h2"><b>Хто</b> ми?</h2>
-                        <div class="description">
+                        <div class="description cms-content">
                             <p><b>7-ФУРНІТЕК ЗАХІД </b> - це команда фахівців, яка знає меблевий бізнес зсередини. Ми
                                 постачаємо якісні матеріали та комплектуючі для виробників м'яких меблів у Львові та по
                                 всій Україні.
@@ -262,10 +378,10 @@
             <div class="bg__wrap">
                 <img src="assets/img/benefit-bg.png" alt="" class="bg">
             </div>
-            <div class="container">
+            <div class="container overlap">
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h2 class="heading heading-accent h2 text-bold text-center"><b>Наші</b> переваги</h2>
+                    <div class="col-xl-12 col-lg-12 col-md-9 col-sm-12 col-xs-12">
+                        <h2 class="heading  h2 text-bold text-left"><b>Наші</b> переваги</h2>
 
                         <div class="benefit__wrap">
                             <div class="benefit">
@@ -414,8 +530,9 @@
 
         <section class="s-testimonial swiper-entry">
             <div class="container ">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex align-justify align-middle">
+                <div class="row m-row">
+                    <div
+                        class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex align-justify align-middle column">
                         <h3 class="heading h2"><b>Відгуки</b></h3>
                         <div class="swiper-button__wrap d-flex align-right">
                             <div class="swiper-button-prev d-flex align-center align-middle">
@@ -427,8 +544,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row m-row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
                         <div class="swiper-container" data-options='{"loop":true,"slidesPerView": 1,  "spaceBetween": 15,"centeredSlides": false,
                          "breakpoints": {
 
@@ -534,27 +651,93 @@
 
         <section class="s-contacts scroll-section" id="contacts">
             <div class="container">
-                <div class="row m-row align-middle s-contacts__inner">
+                <div class="row m-row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
                         <h3 class="heading h2 "><b>Зв'яжіться</b> з нами</h3>
-                        <div class="description "><b>Готові відповісти на ваші запитання</b> та підібрати оптимальне
-                            рішення для вашого виробництва.
-                            Телефонуйте, пишіть або приїжджайте до нас.
+                        <div class="description cms-content">
+                            <p><b>Готові відповісти на ваші запитання</b> та підібрати оптимальне
+                                рішення для вашого виробництва.</p>
+                            <p>Телефонуйте, пишіть або приїжджайте до нас.</p>
                         </div>
                     </div>
                 </div>
-                <div class="row m-row align-middle s-contacts__inner">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                <div class="s-contacts__inner">
+                    <div class="row m-row align-middle ">
+
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 column overlap">
+                            <div class="contacts__info">
+                                <ul class="contacts">
+                                    <li class="contacts__item">
+                                        <span class="contacts__icon contacts__icon--phone"><img
+                                                src="assets/img/phone.svg"></span>
+                                        <div class="contacts__link--wrap">
+                                            <a href="tel:+380960437508" class="contacts__link"><b>+38 (096)
+                                                    043-75-08,</b></a>
+                                            <a href="tel:+380980517873" class="contacts__link"><b>+38 (098)
+                                                    051-78-73</b></a>
+                                        </div>
+                                    </li>
+                                    <li class="contacts__item">
+                                        <span class="contacts__icon contacts__icon--email"><img
+                                                src="assets/img/email.svg"></span>
+                                        <a href="mailto:7furnitekzahid@gmail.com"
+                                            class="contacts__link">7furnitekzahid@gmail.com</a>
+                                    </li>
+                                    <li class="contacts__item">
+                                        <span class="contacts__icon contacts__icon--marker"><img
+                                                src="assets/img/location.svg"></span>
+                                        <span class="contacts__text">м. Львів, вул. Промислова, 60</span>
+                                    </li>
+                                    <li class="contacts__item">
+                                        <span class="contacts__icon contacts__icon--clock"><img
+                                                src="assets/img/timer.svg"></span>
+                                        <span class="contacts__text">Понеділок-п'ятниця 9:00-18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 column overlap">
+                            <form action="#" class="contacts__form form">
+                                <h2 class="contacts__form--title"> <b>Залишились питання?</b> З радістю дамо
+                                    відповідь!</h2>
+
+                                <div class="field__grid">
+                                    <div class="field">
+                                        <input type="text" name="name" id="name" class="field__input"
+                                            placeholder="Ім'я " required>
+
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" name="contact" id="form-contact" class="field__input"
+                                            placeholder="Телефон / Email " required>
+
+                                    </div>
+
+                                    <div class="field">
+                                        <textarea name="message" id="form-message" class="field__textarea"
+                                            placeholder=" Повідомлення"></textarea>
+
+                                    </div>
+
+                                    <div class="field">
+                                        <button type="submit" class="field__btn btn btn--primary">Надіслати</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <!--<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
                         <div class="contacts__container">
 
                             <div class="contacts__wrap">
 
                                 <div class="contacts__info">
-                                    <ul class="contacts__list">
+                                    <ul class="contacts">
                                         <li class="contacts__item">
                                             <span class="contacts__icon contacts__icon--phone"><img
                                                     src="assets/img/phone.svg"></span>
-                                            <div class="contacts__item-content">
+                                            <div class="contacts__link--wrap">
                                                 <a href="tel:+380960437508" class="contacts__link">+38 (096)
                                                     043-75-08</a>,
                                                 <a href="tel:+380980517873" class="contacts__link">+38 (098)
@@ -580,36 +763,11 @@
                                     </ul>
                                 </div>
 
-                                <form action="#" class="contacts__form form">
-                                    <h2 class="contacts__form--title"> <b>Залишились питання?</b> З радістю дамо
-                                        відповідь!</h2>
 
-                                    <div class="field__grid">
-                                        <div class="field">
-                                            <input type="text" name="name" id="name" class="field__input"
-                                                placeholder="Ім'я " required>
-
-                                        </div>
-                                        <div class="field">
-                                            <input type="text" name="contact" id="form-contact" class="field__input"
-                                                placeholder="Телефон / Email " required>
-
-                                        </div>
-
-                                        <div class="field">
-                                            <textarea name="message" id="form-message" class="field__textarea"
-                                                placeholder=" Повідомлення"></textarea>
-
-                                        </div>
-
-                                        <div class="form__actions">
-                                            <button type="submit" class="form__btn btn btn--primary">Надіслати</button>
-                                        </div>
-                                    </div>
-                                </form>
 
                             </div>
                         </div>
+                    </div>-->
                     </div>
                 </div>
                 <div class="row">
@@ -675,53 +833,68 @@
         </div>
     </footer>
 
-    <!--<div class="popup-wrapper">
+
+
+    <div class="popup-wrapper">
         <div class="bg-layer"></div>
+        <div class="popup-content" data-rel="category">
+            <div class="layer-close"></div>
+            <div class="popup-container">
+                <div class="btn-close d-flex align-middle align-center"><i class="icon-close"></i>
+                </div>
+
+                <div class="popup-info">
+                    <img class="popup-dynamic-img" src="" alt="Зображення попапу">
+                    <p class="popup-dynamic-text"></p>
+                </div>
+            </div>
+        </div>
+
 
         <div class="popup-content cta" data-rel="cta">
             <div class="layer-close"></div>
             <div class="popup-container ">
                 <div class="btn-close d-flex align-middle align-center"><i class="icon-close"></i></div>
+                <div class="popup-container__inner">
+                    <div class="popup-form text-center">
+                        <h4 class="popup-form__title text-bold">Зв'язатися з нами</h4>
+                        <div class="popup-form__subtitle">З<b>алишились питання?</b> З радістю
+                            дамо відповідь!</div>
+                        <form>
+                            <div class="field__grid">
+                                <div class="field">
+                                    <input class="field__input" type="text" name="" value="" placeholder="Ім’я"
+                                        title="">
+                                </div>
 
-                <div class="popup-form text-center">
-                    <h4 class="popup-form__title heading-accent h2 text-bold">Зв'язатися з нами</h4>
-                    <div class="popup-form__subtitle heading-accent h2 text-bold">З<b>алишились питання?</b> З радістю
-                        дамо відповідь!</div>
-                    <form>
-                        <div class="field__grid">
-                            <div class="field">
-                                <input class="field__input" type="text" name="" value="" placeholder="Ім’я" title="">
+                                <div class="field">
+                                    <input class="field__input" type="text" name="" value=""
+                                        placeholder="Телефон / Email" title="">
+
+                                </div>
+
+                                <div class="field">
+                                    <textarea class="field__textarea" placeholder="Повідомлення"></textarea>
+                                </div>
+
+                                <input type="submit" value="Надіслати" class="btn btn--primary">
+
                             </div>
-
-                            <div class="field">
-                                <input class="field__input" type="tel" name="" value="" placeholder="Телефон" title="">
-
-                            </div>
-                            <div class="field">
-                                <input class="field__input" type="email" name="" value="" placeholder="Email" title="">
-
-                            </div>
-                            <div class="field">
-                                <textarea class="field__textarea" placeholder="Повідомлення">
-                            </div>
-
-                            <input type="submit" value="Надіслати" class="btn btn-primary">
-
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=" async defer></script>
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&loading=async&callback=initMapBridge" defer></script>
+    <script src="assets/js/jquery-4.0.0.min.js"></script>
 
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/app-swiper.js"></script>
     <script src="src/scripts/app_map.js"></script>
     <script src="src/scripts/js_app.js"></script>
+
 </body>
 
 </html>

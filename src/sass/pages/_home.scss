@@ -1,25 +1,41 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+
+:root {
+  --fs-base: fluid(15, 17);
+  --fs-hero: fluid(30, 50);
+}
+
+
+/*==========================================================================
+  - S-HERO SECTION
+  ==========================================================================*/
 .s-hero {
-  min-height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
+  min-height: 100vh;
+  color: #fff;
+  padding: 126px 0 40px 0;
 
-  & .bg {
-    opacity: 0.15;
+  @media (max-width: $breakpoint-md) {
+    text-align: center;
+  }
+
+  .bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.15;
 
     &__wrap {
-      background: rgba(13, 27, 42, 1);
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
       width: 100%;
+      height: 100%;
+      background: rgb(13, 27, 42);
     }
   }
 
@@ -27,303 +43,550 @@
     padding: 50px 0;
   }
 
-  & .heading {
-    margin-bottom: 40px;
+  // Сторонні утиліти всередині Hero
+  .heading {
+    margin-bottom: fluid(16, 40);
 
     &:not(b) {
       font-weight: 300;
+      font-size: fluid(25, 40);
     }
 
-    & b {
-      font-size: 50px;
-      font-weight: 800;
+    b {
       display: block;
       margin-bottom: 17px;
+      font-size: fluid(40, 50);
+
+      font-weight: 800;
       background-image: linear-gradient(180deg, #A9ADB0 0%, #7E8287 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
+
+      @media (max-width: $breakpoint-md) {
+        max-width: 300px;
+        margin: 0 auto 4px auto;
+        text-align: center;
+      }
     }
   }
 
-  & .description {
+  .description {
     margin-bottom: 41px;
+    font-size: fluid(18, 20);
+    line-height: 1.5;
   }
 
-  & .benefit {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: linear-gradient(152.97deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0) 100%);
-    border-radius: 10px;
+  // Блок переваг всередині Hero
+  .benefit {
     position: relative;
     display: flex;
-    gap: 17px;
     align-items: center;
-    padding: 5px 6px;
-    min-width:240px;
+    gap: 20px;
 
-    &::before {
+    padding: 4px 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-style: dashed;
+    border-radius: 10px;
+    background: linear-gradient(152.97deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0) 100%);
 
+    @media (min-width: $breakpoint-md) {
+      min-width: 240px;
+    }
 
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 10px;
-      padding: 1px;
-      /* Товщина вашого бордера */
-
-      /* Колір вашого бордера */
-      background: red;
-
-      /* 1. Створюємо 4 окремі градієнти для кожної сторони */
-      -webkit-mask-image:
-        linear-gradient(90deg, #000 2px, transparent 2px),
-        /* Верх */
-        linear-gradient(90deg, #000 2px, transparent 2px),
-        /* Низ */
-        linear-gradient(180deg, #000 2px, transparent 2px),
-        /* Ліво */
-        linear-gradient(180deg, #000 2px, transparent 2px);
-      /* Право */
-
-      /* 2. Повторюємо їх відповідно по осях X та Y */
-      -webkit-mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-
-      /* 3. Чітко позиціонуємо кожен градієнт на свій бік */
-      -webkit-mask-position: 0 0, 0 100%, 0 0, 100% 0;
-
-      /* 4. Задаємо розмір кроку (4px = 2px штрих + 2px пропуск) */
-      -webkit-mask-size: 4px 1px, 4px 1px, 1px 4px, 1px 4px;
-
-      /* Вирізаємо середину, залишаючи тільки контур */
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-
-      pointer-events: none;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 10px;
+      gap: 15px;
     }
 
     &__wrap {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 340px));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      margin-top: 70px;
-    }
+      margin-top: fluid(22, 70);
 
-    &__icon {
-      &-wrap {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(180deg, #A9ADB0 0%, #7E8287 100%);
-        border-radius: 10px;
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
+    &__icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #A9ADB0 0%, #7E8287 100%);
+    }
+
     &__title {
-      color: rgba(255, 255, 255, 1);
-      font-size: 17px;
+      font-size: var(--fs-base);
+      color: rgb(255, 255, 255);
     }
   }
 }
 
-
-// Контекстний блок-контейнер, який керує сіткою кнопок
+// Контейнер для кнопок дій
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px; // Відступ між кнопками (керується батьком, а не марджинами кнопок)
   align-items: center;
+  gap: fluid(20, 24);
 
-  // Елемент-мікс для додаткового контролю (якщо знадобиться на мобільних)
   &__btn {
-    min-width: 200px; // Забезпечує гарний мінімальний розмір
+    min-width: 200px;
 
     @media (max-width: 576px) {
-      width: 100%; // На мобільних екранах кнопки стають на всю ширину
+      width: 100%;
     }
   }
 }
 
-
+/*==========================================================================
+  - S-CATEGORY SECTION
+  ==========================================================================*/
 .s-category {
-  padding: 100px 0;
+  padding: fluid(50, 100) 0;
 
-  & .heading {
-    margin-bottom: 50px;
+  .heading {
+    margin-bottom: fluid(16, 50);
   }
 
-  & .description {
+  .description {
     margin-bottom: fluid(20, 45);
     font-size: fluid(17, 24);
   }
 
-  & .category {
-    &__grid {
+  // Обгортка сітки карток
+  .promo-card__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 27px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 567px) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  // Компонент картки
+  .promo-card {
+    --card-padding: 30px 20px;
+    --transition-curve: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: fluid(230, 375);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1a1515;
+    isolation: isolate;
+
+    &:hover {
+      .promo-card__img {
+        transform: scale(1.05);
+      }
+
+      .promo-card__action-icon {
+        transform: translateX(6px);
+      }
+    }
+
+    &__hitbox {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    &__body {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: var(--card-padding);
+      color: #ffffff;
+      pointer-events: none;
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--transition-curve);
+      will-change: transform;
+
+      &--wrap {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+          background: rgba(13, 27, 42, 0.7);
+        }
+      }
+    }
+
+    &__header {
       display: grid;
-      grid-template-columns: repeat(3, auto);
-      gap: 30px 27px;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 46px;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fluid(40, 50);
+      height: fluid(40, 50);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      font-size: fluid(18, 20);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    &__text {
+      margin: 0 0 auto 0;
+      font-size: fluid(15, 17);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &__action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    &__action-text {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &__action-icon {
+      font-size: 14px;
+      transition: transform 0.3s var(--transition-curve);
     }
   }
 }
 
+/*==========================================================================
+  - S-ABOUT SECTION
+  ==========================================================================*/
 .s-about {
-  background: rgba(248, 249, 253, 1);
-  padding: 100px 0;
+  padding: fluid(50, 100) 0;
+  background: rgb(248, 249, 253);
 
-  & .heading {
-    margin-bottom: 50px;
+  .heading,
+  .description {
+    margin-bottom: fluid(30, 50);
   }
 
-  & .description {
-    margin-bottom: 50px;
-  }
-
-  & .img {
+  .img {
     aspect-ratio: 2;
     border-radius: 20px;
-
-
-    &__wrap {}
   }
 }
 
-
+/*==========================================================================
+  - S-PARTNERS SECTION
+  ==========================================================================*/
 .s-partners {
-  padding: 100px 0;
+  padding: fluid(50, 100) 0;
 
-  & .partner__img {
+  .swiper-container {
+    margin-top: fluid(30, 42);
+  }
+
+  .partner__img {
     width: 80%;
     height: 70%;
     object-fit: contain;
 
     &-wrap {
+      display: flex; // Додано для ідеального центрування логотипів партнерів
+      align-items: center;
+      justify-content: center;
       height: 150px;
-      border: 1px solid rgba(230, 230, 230, 1);
+      border: 1px solid rgb(230, 230, 230);
       border-radius: 10px;
+      filter: grayscale(100%);
+      will-change: filter;
+      transition:
+        filter 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &:hover {
+        filter: grayscale(0%); // Повністю прибираємо сірий фільтр
+
+      }
     }
   }
 }
 
+/*==========================================================================
+  - S-TESTIMONIAL SECTION
+  ==========================================================================*/
 .s-testimonial {
-  padding-bottom: 100px;
+  padding-bottom: fluid(50, 100);
+
+  .swiper-container {
+    margin-top: fluid(30, 47);
+  }
 
   .testimonial-card {
-    background: rgb(248, 249, 253);
-    border-radius: 10px;
-    padding: 23px 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
     min-height: 265px;
+    padding: 23px 20px;
+    border-radius: 10px;
+    background: rgb(248, 249, 253);
 
     &__name {
       font-size: 20px;
+      font-weight: bold;
+    }
+
+    &__meta {
+      font-weight: 500;
     }
 
     &__meta,
-    &__text {
-      font-size: 17px;
-    }
+    &__text {}
 
     &__text {
       font-weight: 300;
+      line-height: 1.5;
     }
   }
 }
 
-
-
+/*==========================================================================
+  - S-BENEFIT SECTION
+  ==========================================================================*/
 .s-benefit {
+  position: relative;
   padding: fluid(50, 100) 0;
 
-  & .heading {
-    margin-bottom: fluid(20, 50);
+  @media (max-width: $breakpoint-md) {
+    margin-top: 50px;
   }
 
-  & .benefit {
-    padding: 30px 23px;
+  .heading {
+    margin-bottom: fluid(20, 50);
+    color: rgb(255, 255, 255);
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+
+    &__wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(13, 27, 42);
+    }
+  }
+
+  .benefit {
+    display: grid;
+    grid-template-columns: fluid(59, 90) 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: fluid(10, 30) fluid(10, 23);
     border-radius: 150px;
-    background-color: red;
+    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(42px);
+    color: #fff;
 
     &__wrap {
       display: grid;
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
 
-      @media (max-width: $breakpoint-md) {
-        grid-template-columns: repeat(2, auto);
-        gap: 30px;
+      @media (max-width: $breakpoint-lg) {
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
     }
-
-    display: grid;
-    grid-template-columns: fluid(59, 90) 1fr;
-    gap: 20px;
-    align-items: center;
 
     &__title {
       margin-bottom: 15px;
+      font-size: fluid(17, 20);
     }
 
-    &__icon {
-      &-wrap {
-        background: rgba(13, 27, 42, 1);
-        border-radius: 100%;
-        width: fluid(61, 90);
-        height: fluid(61, 90);
-      }
+    &__description {
+      font-size: fluid(15, 17);
+      line-height: 1.6;
+    }
 
+    &__icon-wrap {
+      display: flex; // Додано для вирівнювання іконки всередині кола
+      align-items: center;
+      justify-content: center;
+      width: fluid(61, 90);
+      height: fluid(61, 90);
+      border-radius: 100%;
+      background: rgb(13, 27, 42);
     }
   }
 }
 
+/*==========================================================================
+  - S-CONTACTS SECTION
+  ==========================================================================*/
 .s-contacts {
-  padding: fluid(50, 100) 0;
+  padding: fluid(0, 100) 0 100px 0;
 
-  & .contacts {
-    &__wrap {
-      border-radius: 30px;
-      background: rgba(248, 249, 253, 1);
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      border-radius: 30px;
-      margin-bottom: 50px;
+  &__inner {
+
+    position: relative;
+    padding: fluid(10, 20) fluid(10, 20) fluid(10, 20) fluid(10, 30);
+    margin-bottom: 50px;
+
+    @media (max-width: $breakpoint-md) {
+      padding-top: 30px;
     }
 
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(248, 249, 253, 1);
+      border-radius: 30px;
+    }
+  }
+
+  .heading {
+    margin-bottom: 35px;
+  }
+
+  .description {
+    margin-bottom: 43px;
+  }
+
+  .contacts {
+    display: grid;
+    gap: fluid(20, 30);
+
+
     &__info {
-      grid-column: span 5;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__link {
+      @media (max-width: $breakpoint-xl) {
+        display: block;
+      }
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 100%;
+      background: rgb(66, 103, 175);
     }
 
     &__item {
       display: grid;
       grid-template-columns: 55px 1fr;
-      border-radius: 20px;
+      align-items: center;
+      gap: 20px;
     }
 
     &__form {
-      grid-column: span 7;
-      background: rgba(255, 255, 255, 1);
+
+      padding: 30px fluid(10, 37);
       border-radius: 30px;
-      padding: 30px 37px;
+      background: rgb(255, 255, 255);
 
       &--title {
         margin-bottom: 9px;
+        font-size: 22px;
+@media (max-width: $breakpoint-lg) {
+            text-align: center;
+          }
+        & b {
+          @media (max-width: $breakpoint-lg) {
+            display: block;
+          }
+        }
+
+      }
+
+      .field {
+        &__grid {
+          @media (min-width: $breakpoint-lg) {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        @media (min-width: $breakpoint-lg) {
+
+          &:nth-child(3),
+          &:nth-child(4) {
+            grid-column: span 2;
+          }
+        }
       }
     }
   }
 
-  & .map {
-    height: 100%;
+  .map {
     width: 100%;
+    height: 100%;
 
     &__wrap {
       width: 100%;
       height: 440px;
-      border-radius: 20px;
       overflow: hidden;
+      border-radius: 20px;
     }
   }
 }
