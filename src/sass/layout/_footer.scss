@@ -53,15 +53,17 @@
 
   &__copyright {
     color: rgba(138, 155, 176, 1);
-    margin-bottom: fluid(10,20);
+    margin-bottom: fluid(10, 20);
+    font-size: (15, 16);
   }
 
   &__developer {
     color: rgba(138, 155, 176, 1);
+    font-size: fluid(15, 16);
 
     &-link {
       color: rgba(138, 155, 176, 1);
-      text-decoration: underline;
+      text-decoration: none;
       transition: color 0.2s ease;
 
       &:hover {

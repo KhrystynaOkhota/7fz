@@ -951,13 +951,15 @@ img::selection {
 .footer__copyright {
   color: rgb(138, 155, 176);
   margin-bottom: clamp(10px, 10px + (20 - 10) * (100vw - 375px) / (1440 - 375), 20px);
+  font-size: 15, 16;
 }
 .footer__developer {
   color: rgb(138, 155, 176);
+  font-size: clamp(15px, 15px + (16 - 15) * (100vw - 375px) / (1440 - 375), 16px);
 }
 .footer__developer-link {
   color: rgb(138, 155, 176);
-  text-decoration: underline;
+  text-decoration: none;
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
