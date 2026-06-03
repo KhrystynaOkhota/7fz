@@ -1,7 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-// 1. Повне скидання дефолтних відступів та бордерів
 html, body, div, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, acronym, address, big, cite, code,
@@ -18,11 +17,11 @@ time, mark, audio, video {
   border: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: var(--fs-base);
+  font-size: fluid(15,17);
   vertical-align: baseline;
 }
 
-// 2. Сучасний універсальний Box Sizing та скидання аутлайнів
+
 *,
 *::before,
 *::after {
@@ -31,23 +30,23 @@ time, mark, audio, video {
   -webkit-tap-highlight-color: transparent !important; // Залишаємо для мобільного Safari
 }
 
-// 3. Структурні елементи HTML5
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-// 4. Базові стилі для Body
+
 body {
   position: relative;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   background: #fff;
   color: #1B1B1B;
-  // overflow: hidden !important; // КРИТИЧНО: розкоментуйте ТІЛЬКИ якщо скрол йде через JS-плагін
+  // overflow: hidden !important; 
 }
 
-// 5. Списки, таблиці та цитати
+
 ol, ul {
   list-style: none;
 }

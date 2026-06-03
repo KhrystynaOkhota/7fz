@@ -4,7 +4,7 @@
 // Токени компонента
 $color-bg-dark: #0d1b2a;
 $color-text-white: #ffffff;
-$color-accent: #4166b0;
+$color-accent: rgb(66, 103, 175);
 $transition-base: 0.35s cubic-bezier(0.25, 1, 0.5, 1); // Більш плавна крива анімації
 
 /* ==========================================================================
@@ -24,7 +24,7 @@ $transition-base: 0.35s cubic-bezier(0.25, 1, 0.5, 1); // Більш плавн�
   }
 
   &.scrolled {
-    background-color: rgba(13, 27, 42, 0.8);
+    background-color: rgba(13, 27, 42, 1);
   }
 
   &__container {
@@ -72,6 +72,10 @@ $transition-base: 0.35s cubic-bezier(0.25, 1, 0.5, 1); // Більш плавн�
       text-decoration: none;
       transition: color $transition-base;
 
+      @media (max-width: $breakpoint-lg) {
+        font-size: 18px;
+      }
+
       &:hover,
       &.active {
         color: $color-accent;
@@ -95,6 +99,10 @@ $transition-base: 0.35s cubic-bezier(0.25, 1, 0.5, 1); // Більш плавн�
       text-transform: uppercase;
       text-decoration: none;
       transition: color $transition-base;
+
+      @media (max-width: $breakpoint-lg) {
+        font-size: 18px;
+      }
 
       &:hover {
         color: $color-accent;
